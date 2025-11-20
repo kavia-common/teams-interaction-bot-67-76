@@ -1,6 +1,6 @@
 /* Ocean Professional Palette (unchanged) */
 :root {
-  /* Palette */
+  /* ============== Color Palette (base) ============== */
   --color-primary: #2563EB;  /* Ocean Blue */
   --color-secondary: #F59E0B; /* Amber */
   --color-success: #F59E0B;
@@ -10,12 +10,72 @@
   --color-surface: #ffffff;    /* surface/cards */
   --color-text: #111827;       /* text */
 
-  /* Elevation */
+  /* ============== Complementary Shades (additive) ============== */
+  /* Primary scale for depth and states */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563EB; /* requested */
+  --color-primary-700: #1d4ed8; /* requested */
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+
+  /* Amber accents */
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde68a;
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #f59e0b; /* legacy secondary aligns here visually */
+  --color-amber-500: #f59e0b; /* requested - match to maintain palette */
+  --color-amber-600: #d97706; /* requested - darker accent */
+
+  /* Neutral grayscale for borders/surfaces */
+  --neutral-50:  #f9fafb;
+  --neutral-100: #f3f4f6;
+  --neutral-200: #e5e7eb;
+  --neutral-300: #d1d5db;
+  --neutral-400: #9ca3af;
+  --neutral-500: #6b7280;
+  --neutral-600: #4b5563;
+  --neutral-700: #374151;
+  --neutral-800: #1f2937;
+  --neutral-900: #111827;
+
+  /* ============== Elevation / Shadows (additive) ============== */
+  /* Keep existing shadows for backward-compat; add new elevation scale */
   --shadow-1: 0 1px 2px rgba(0,0,0,0.06);
   --shadow-2: 0 2px 4px rgba(0,0,0,0.08);
-  --radius: 6px;
 
-  /* Compact default tokens (enabled by default) */
+  /* Requested elevation tokens with subtle depth and blur-feel */
+  --elevation-1: 0 1px 2px rgba(17,24,39,0.06);
+  --elevation-2: 0 4px 10px rgba(17,24,39,0.08);
+  --elevation-3: 0 10px 25px rgba(17,24,39,0.10);
+
+  /* ============== Radii (additive, modern rounding) ============== */
+  --radius: 6px;            /* legacy default */
+  --radius-xs: 6px;         /* requested */
+  --radius-sm: 8px;         /* requested */
+  --radius-md: 10px;        /* requested */
+  --radius-lg: 14px;        /* requested */
+
+  /* ============== Gradients (additive) ============== */
+  --gradient-surface: linear-gradient(180deg, rgba(37,99,235,0.06), rgba(249,250,251,0));
+  --gradient-appbar: linear-gradient(90deg, rgba(37,99,235,0.12), rgba(245,158,11,0.10));
+
+  /* ============== Interactive States (additive) ============== */
+  --hover-overlay: rgba(37,99,235,0.06);
+  --active-overlay: rgba(37,99,235,0.10);
+  --focus-ring: 0 0 0 2px rgba(37,99,235,0.25);
+
+  /* ============== Surface System (additive) ============== */
+  --surface-bg: #ffffff;
+  --surface-muted: #f9fafb;
+  --surface-border: rgba(17,24,39,0.08);
+
+  /* ============== Typography (compact defaults preserved) ============== */
   --font-size-base: 14px;
   --font-size-xs: 11px;
   --font-size-sm: 12px;
@@ -34,7 +94,13 @@
   --lh-normal: 1.4;
   --lh-loose: 1.6;
 
-  /* Compact spacing scale (2/4/6/8/12/16) */
+  /* Typography polish (additive) */
+  --font-weight-ui: 520;
+  --letter-tight: -0.01em;
+  --letter-normal: 0;
+
+  /* ============== Spacing (compact preserved) ============== */
+  /* Keep original compact values as provided; ensure presence of small steps */
   --space-1: 2px;
   --space-2: 4px;
   --space-3: 6px;
@@ -42,7 +108,7 @@
   --space-5: 12px;
   --space-6: 16px;
 
-  /* Component specific compact tokens */
+  /* ============== Components (compact preserved) ============== */
   --container-max: 1100px;
   --navbar-height: 44px;
   --toolbar-gap: var(--space-3);
@@ -56,7 +122,16 @@
   --table-cell-padding-y: 6px;
   --table-cell-padding-x: 8px;
 
-  /* Light/Dark bridge to existing App.css variables */
+  /* Controls (additive to ensure presence) */
+  --control-height-sm: 28px;
+  --control-height-md: 32px;
+
+  /* ============== Motion (additive) ============== */
+  --transition-fast: 120ms ease;
+  --transition-base: 180ms ease;
+  --transition-slow: 260ms ease;
+
+  /* ============== Bridge to existing App.css variables (unchanged) ============== */
   --bg-primary: var(--color-bg);
   --bg-secondary: #f3f4f6; /* slightly darker surface for headers */
   --text-primary: var(--color-text);
@@ -67,6 +142,7 @@
 }
 
 /* Non-compact mode (spacious) can be enabled with data-compact="off" */
+/* Keep existing larger scale; no breaking changes. */
 :root[data-compact="off"] {
   --font-size-base: 16px;
   --font-size-xs: 12px;
@@ -108,10 +184,63 @@
 :root[data-theme="dark"] {
   --bg-primary: #1a1a1a;
   --bg-secondary: #111827;
-  --color-bg: #0f172a;     /* deep slate */
-  --color-surface: #111827;/* surface */
+
+  /* Surfaces & text */
+  --color-bg: #0f172a;        /* deep slate */
+  --color-surface: #111827;   /* surface */
   --color-text: #f3f4f6;
+
+  /* Borders and overlays */
   --border-color: #374151;
-  --button-bg: #1d4ed8;    /* darker primary variant */
+  --surface-border: rgba(255,255,255,0.08); /* refine border contrast on dark */
+
+  /* Buttons / interactive */
+  --button-bg: #1d4ed8;       /* darker primary variant */
   --button-text: #ffffff;
+
+  /* Overlays and focus feel slightly stronger in dark */
+  --hover-overlay: rgba(59,130,246,0.10);
+  --active-overlay: rgba(37,99,235,0.18);
+  --focus-ring: 0 0 0 2px rgba(59,130,246,0.35);
+
+  /* Gradients adapt subtly to dark */
+  --gradient-surface: linear-gradient(180deg, rgba(59,130,246,0.12), rgba(17,24,39,0));
+  --gradient-appbar: linear-gradient(90deg, rgba(59,130,246,0.18), rgba(245,158,11,0.14));
 }
+
+/* ===================== Utility classes (non-breaking) ===================== */
+/* Encourage adoption without changing existing class names */
+
+.u-surface {
+  background: var(--surface-bg);
+  box-shadow: var(--elevation-1);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-md);
+}
+
+.u-appbar {
+  background: var(--gradient-appbar);
+  backdrop-filter: saturate(120%) blur(6px);
+  -webkit-backdrop-filter: saturate(120%) blur(6px);
+  border-bottom: 1px solid var(--surface-border);
+}
+
+.u-card {
+  background: var(--surface-bg);
+  box-shadow: var(--elevation-2);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--surface-border);
+  transition: box-shadow var(--transition-base), transform var(--transition-fast);
+}
+.u-card:hover { box-shadow: var(--elevation-3); transform: translateY(-1px); }
+
+.u-focus { outline: none; box-shadow: var(--focus-ring); }
+
+.u-hover:hover { background: var(--hover-overlay); }
+
+/* Optional helper tokens consumption */
+.u-rounded-sm { border-radius: var(--radius-sm); }
+.u-rounded-md { border-radius: var(--radius-md); }
+.u-rounded-lg { border-radius: var(--radius-lg); }
+
+.u-surface-muted { background: var(--surface-muted); }
