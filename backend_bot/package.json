@@ -1,0 +1,30 @@
+{
+  "name": "backend_bot",
+  "version": "1.0.0",
+  "description": "Microsoft Bot Framework Echo Bot backend service (Express) for local testing with Bot Framework Emulator.",
+  "main": "index.js",
+  "private": true,
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "botbuilder": "^4.22.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "botframework",
+    "echo-bot",
+    "microsoft-bot-builder",
+    "express"
+  ],
+  "license": "MIT"
+}
