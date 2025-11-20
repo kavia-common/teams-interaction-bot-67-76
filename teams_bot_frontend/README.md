@@ -8,6 +8,7 @@ This project provides a minimal React template with a clean, modern UI and minim
 - **Modern UI**: Clean, responsive design with KAVIA brand styling
 - **Fast**: Minimal dependencies for quick loading times
 - **Simple**: Easy to understand and modify
+- **Compact Mode**: A compact theme with smaller typography and tighter spacing is enabled by default.
 
 ## Getting Started
 
@@ -27,31 +28,20 @@ Launches the test runner in interactive watch mode.
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Customization
+## Compact Theme
 
-### Colors
+The app uses token-driven CSS variables for sizes and spacing. Compact mode is ON by default.  
+To disable compact mode (use more spacious sizing), set the environment variable:
 
-The main brand colors are defined as CSS variables in `src/App.css`:
+- REACT_APP_COMPACT_MODE=off
 
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
+You can also toggle compact mode at runtime using the "Compact" button in the top toolbar.
 
-### Components
+## Styling
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
-
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+- Ocean Professional palette is preserved in `src/theme.css`.
+- Global tokens (font sizes, spacing, radii) are defined in `src/theme.css` and applied throughout.
+- Common components (navbar, buttons, cards, inputs, table) consume the tokens via CSS variables.
 
 ## Learn More
 
