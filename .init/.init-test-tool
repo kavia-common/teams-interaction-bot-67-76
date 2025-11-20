@@ -1,0 +1,4 @@
+{
+    "command": "npm run test",
+    "working_directory": "/home/kavia/workspace/code-generation/teams-interaction-bot-67-76/teams_bot_frontend"
+}
